@@ -17,3 +17,5 @@ Route::get('/',function(){
 });
 Route::get('/get_data/{id}', 'UserController@getData');
 Route::get('/add_data', 'UserController@addData');
+Route::get('/station_add_data','StationController@addData');
+Route::get('/station_get_data/{id}', 'StationController@getData');

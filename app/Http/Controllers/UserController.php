@@ -11,8 +11,8 @@ class UserController extends Controller
 	public function getData($id){
 		$response= new ApiResponse();
 		try{
-			$user = User::select('name','email','role','google_id')->where('google_id',$id)->get();
-			// $user = User::select('*')->where('google_id',$id)->get();
+			$user = User::select('name','email','role','id')->where('id',$id)->get();
+			// $user = User::where('google_id',$id)->get();
 			if(count($user)>0){
 				return $response->showData($user[0]);
 			}
@@ -47,7 +47,7 @@ class UserController extends Controller
 			$user = new User;
 			$user->name = $request->name;
 			$user->email = $request->email;
-			$user->google_id = $request->google_id;
+			$user->id = $request->user_id;
 			$user->role = $request->role;
 			$user->save();
 			return $response->showData($user);
