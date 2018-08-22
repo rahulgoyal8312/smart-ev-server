@@ -11,6 +11,6 @@
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
+use Illuminate\Support\Facades\Route;
+Route::get('/test_data', 'Controller@test_data');
+Route::get('/test_error', 'Controller@test_error');
