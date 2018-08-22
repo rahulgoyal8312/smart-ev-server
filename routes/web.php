@@ -12,5 +12,8 @@
 */
 
 use Illuminate\Support\Facades\Route;
-Route::get('/test_data', 'Controller@test_data');
-Route::get('/test_error', 'Controller@test_error');
+Route::get('/',function(){
+	return view('welcome');
+});
+Route::get('/get_data/{id}', 'UserController@getData');
+Route::get('/add_data', 'UserController@addData');
