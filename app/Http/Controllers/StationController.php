@@ -12,7 +12,7 @@ class StationController extends Controller
     public function getData($id){
     	$response = new ApiResponse();
     	try{
-    		$station = Station::findOrFail($id)->get();
+    		$station = Station::where('id',$id)->get();
     		if(count($station)>0){
     			return $response->showData($station[0]);
     		}
