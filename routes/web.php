@@ -16,6 +16,7 @@ Route::get('/',function(){
 	return view('welcome');
 });
 Route::get('/get_data/{id}', 'UserController@getData');
-Route::get('/add_data', 'UserController@addData');
-Route::get('/station_add_data','StationController@addData');
+Route::post('/add_data', 'UserController@addData');
+Route::post('/station_add_data','StationController@addData');
 Route::get('/station_get_data/{id}', 'StationController@getData');
+
