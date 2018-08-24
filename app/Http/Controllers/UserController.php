@@ -8,10 +8,10 @@ use Validator;
 
 class UserController extends Controller
 {
-	public function getData($id){
+	public function getUser($user_id){
 		$response= new ApiResponse();
 		try{
-			$user = User::select('name','email','role','id')->where('id',$id)->get();
+			$user = User::where('user_id',$user_id)->get();
 			// $user = User::where('google_id',$id)->get();
 			if(count($user)>0){
 				return $response->showData($user[0]);
@@ -28,9 +28,10 @@ class UserController extends Controller
 		}
 	}
 
-	public function addData(Request $request){
+	public function addUser(Request $request){
 		
 		$validator = Validator::make($request->all(),[
+			'user_id'=> 'required|unique:users,user_id',
 			'email'=> 'required|email',
 			'name' => 'required|string',
 			'role' => 'required',
@@ -47,7 +48,7 @@ class UserController extends Controller
 			$user = new User;
 			$user->name = $request->name;
 			$user->email = $request->email;
-			$user->id = $request->user_id;
+			$user->user_id = $request->user_id;
 			$user->role = $request->role;
 			$user->save();
 			return $response->showData($user);

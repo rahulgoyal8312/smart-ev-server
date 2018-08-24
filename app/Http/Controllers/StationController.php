@@ -9,7 +9,7 @@ use App\User;
 use DB;
 class StationController extends Controller
 {
-    public function getData($id){
+    public function getStation($id){
     	$response = new ApiResponse();
     	try{
     		$station = Station::where('id',$id)->get();
@@ -28,7 +28,7 @@ class StationController extends Controller
     	}
     }
 
-    public function addData(Request $request){
+    public function addStation(Request $request){
     	$validator = Validator::make($request->all(),[
     		'name'=>'required|string',
     		'address'=>'required|string',

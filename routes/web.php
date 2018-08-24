@@ -15,8 +15,8 @@ use Illuminate\Support\Facades\Route;
 Route::get('/',function(){
 	return view('welcome');
 });
-Route::get('/get_data/{id}', 'UserController@getData');
-Route::post('/add_data', 'UserController@addData');
-Route::post('/station_add_data','StationController@addData');
-Route::get('/station_get_data/{id}', 'StationController@getData');
+Route::get('/get_user/{user_id}', 'UserController@getUser');
+Route::post('/add_user', 'UserController@addUser');
+Route::post('/add_station','StationController@addStation');
+Route::get('/get_station/{id}', 'StationController@getStation');
 
