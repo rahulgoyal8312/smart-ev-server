@@ -31,11 +31,11 @@ class StationController extends Controller
     public function addStation(Request $request){
     	$validator = Validator::make($request->all(),[
     		'name'=>'required|string',
+    		'user_id'=>'required|string',
     		'address'=>'required|string',
     		'type'=>'required|integer',
-    		'latitude'=>['required','regex:^[-]?(([0-8]?[0-9])\.(\d+))|(90(\.0+)?)$'],
-    		'longtitude'=>['required','regex:^[-]?((((1[0-7][0-9])|([0-9]?[0-9]))\.(\d+))|180(\.0+)?)$'],
-    		'station_id'=>'required',
+    		'latitude'=>'required','regex:^[-]?(([0-8]?[0-9])\.(\d+))|(90(\.0+)?)$',
+    		'longitude'=>'required','regex:^[-]?((((1[0-7][0-9])|([0-9]?[0-9]))\.(\d+))|180(\.0+)?)$',
     	]);
     	$response = new ApiResponse;
 		if ($validator->fails()) {
@@ -48,9 +48,8 @@ class StationController extends Controller
 			$station = new Station;
 			$station->name = $request->name;
 			$station->address = $request->address;
-			$station->id = $request->station_id;
 			$station->latitude = $request->latitude;
-			$station->longtitude = $request->longtitude;
+			$station->longitude = $request->longitude;
 			$station->type = $request->type;
 			$station->user_id = $request->user_id;
 
