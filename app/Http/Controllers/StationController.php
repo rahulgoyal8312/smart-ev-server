@@ -31,7 +31,7 @@ class StationController extends Controller
     public function addStation(Request $request){
     	$validator = Validator::make($request->all(),[
     		'name'=>'required|string',
-    		'user_id'=>'required|string',
+    		'user_id'=>'required|string|exists:users,user_id',
     		'address'=>'required|string',
     		'type'=>'required|integer',
     		'latitude'=>'required','regex:^[-]?(([0-8]?[0-9])\.(\d+))|(90(\.0+)?)$',
