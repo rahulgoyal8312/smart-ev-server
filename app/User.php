@@ -8,7 +8,7 @@ use App\Station;
 class User extends Model
 {
     protected $fillable=[
-        'name','email','role','user_id',
+        'name','email','role','user_id','car_model','battery_model',
     ];
 
     public function station(){
