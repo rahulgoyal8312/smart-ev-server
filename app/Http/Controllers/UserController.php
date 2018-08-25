@@ -35,6 +35,8 @@ class UserController extends Controller
 			'email'=> 'required|email',
 			'name' => 'required|string',
 			'role' => 'required',
+			'car_model'=>'required|string',
+			'battery_model'=>'required|string',
 		]);
 		$response = new ApiResponse;
 		if ($validator->fails()) {
@@ -50,6 +52,8 @@ class UserController extends Controller
 			$user->email = $request->email;
 			$user->user_id = $request->user_id;
 			$user->role = $request->role;
+			$user->car_model = $request->car_model;
+			$user->battery_model= $request->battery_model;
 			$user->save();
 			return $response->showData($user);
 			} 

@@ -17,7 +17,9 @@ class CreateUsersTable extends Migration
             $table->string('user_id')->unique();
             $table->string('name');
             $table->string('email');
-            $table->integer('role');
+            $table->enum('role',['0','1']);
+            $table->string('car_model');
+            $table->string('battery_model');
             $table->rememberToken();
             $table->timestamps();
         });
